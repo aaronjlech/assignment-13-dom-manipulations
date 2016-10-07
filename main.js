@@ -137,19 +137,25 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
 document.querySelector("#cycle-image button").addEventListener('click',function(){
 
 var imgSelector = document.querySelector('#city-img')
-var tagSplit = imgSelector.outerHTML.split('');
-console.log(tagSplit)
-var photoIndex = tagSplit[66]
 
-var photoNum = parseInt(photoIndex)
-photoNum = photoNum + 1
-console.log(photoNum)
-if(photoNum > 10){
-   photoNum = 0
+console.log(imgSelector.src)
+var srcSplit = imgSelector.src.split("-")
+var numSelector = parseInt(srcSplit[5])
+console.log(numSelector)
+if(numSelector === 10){
+   numSelector = 0
 }
 
 
-imgSelector.src = "./images/city-photo-" + photoNum +".jpg"
+numSelector += 1
+if(numSelector === 11){
+   numSelector = 10
+}
+
+
+
+
+imgSelector.src = "./images/city-photo-" + numSelector +".jpg"
 
 // imgSelector.outerHTML = "<img id=\"city-img\" class=\"exercise-item\" src=\"./images/city-photo-2.jpg\">"
    console.log([imgSelector]);
